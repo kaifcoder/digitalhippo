@@ -1,3 +1,4 @@
+import LandingAnim from "@/components/LandingAnim";
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { CheckCircle, Download, Leaf } from "lucide-react";
@@ -25,7 +26,8 @@ export default function Home() {
   return (
     <>
       <MaxWidthWrapper>
-        <div className="py-20 mx-auto text-center flex flex-col items-center max-w-3xl">
+        <div className="py-10 mx-auto text-center flex flex-col items-center max-w-3xl">
+          <LandingAnim />
           <h1 className="text-4xl tracking-tight font-bold text-gray-900 sm:text-5xl">
             Your Marketplace for High Quality{" "}
             <span className="text-blue-600">Digital Assets</span>.
@@ -47,7 +49,7 @@ export default function Home() {
         </div>
         {/* TODO: List Products */}
       </MaxWidthWrapper>
-      <section className="border-t border-gray-200 bg-gray-50">
+      <section className="border-t mt-10 border-gray-200 bg-gray-50">
         <MaxWidthWrapper className="py-20">
           <div className="grid grid-cols-1 gap-y-12 sm:grid-cols-2 sm:gap-x-6 lg:grid-cols-3 lg:gap-x-8 lg:gap-y-0 ">
             {perks.map((perk) => (
