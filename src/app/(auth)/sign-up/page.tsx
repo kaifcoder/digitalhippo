@@ -13,6 +13,7 @@ import {
   AuthCredentialValidator,
   TAuthCredentialValidator,
 } from "@/lib/validators/account-credential-validator";
+import { trpc } from "@/trpc/client";
 
 type Props = {};
 
@@ -25,9 +26,9 @@ const page = (props: Props) => {
   } = useForm<TAuthCredentialValidator>({
     resolver: zodResolver(AuthCredentialValidator),
   });
-
+  const { mutate, isLoading } = trpc.auth.createPayloadUser.useMutation({});
   const onSubmit = ({ email, password }: TAuthCredentialValidator) => {
-    //send request to server
+    mutate({ email, password });
   };
 
   return (
@@ -66,6 +67,7 @@ const page = (props: Props) => {
                   <Label htmlFor="password">Password</Label>
                   <Input
                     {...register("password")}
+                    type="password"
                     className={cn({
                       "focus-visible:ring-red-500": errors.password,
                     })}
