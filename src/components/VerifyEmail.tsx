@@ -58,6 +58,7 @@ const VerifyEmail = ({ token }: VerifyEmailProps) => {
             animationData={loadinganim}
             className="flex justify-center items-center w-full h-full"
             loop={true}
+            placeholder="Loading..."
           />
         </div>
         <h3 className="font-semibold text-2xl">
